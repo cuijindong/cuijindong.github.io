@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="大狗子">
+    
+    <title>
+        
+            scss实现主题切换 |
+        
+        大狗子
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/cat.jpg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.2/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/cat.jpg","favicon":"/images/cat.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"万丈高楼平地起，勿在浮沙筑高台"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.2"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                大狗子
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">scss实现主题切换</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/cat.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">大狗子</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-04-12 09:49:14
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/css/">css</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2/">主题切换</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.5k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="主题切换"><a href="#主题切换" class="headerlink" title="主题切换"></a>主题切换</h2><p>关于主题切换应该不是很陌生，一般都是白天黑夜进行切换提高用户体验。利用 <strong>setAttribute</strong> 和 <strong>scss</strong> 可以实现一个便于管理的主题切换。</p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><ol>
+<li>利用<strong>setAttribute</strong>为html设置主题标识。</li>
+<li>使用scss map 管理主题样式。</li>
+<li>遍历scss map 获取对应主题的样式。<h2 id="setAttribute"><a href="#setAttribute" class="headerlink" title="setAttribute"></a>setAttribute</h2><blockquote>
+<p>设置指定元素上的某个属性值。如果属性已经存在，则更新该值；否则，使用指定的名称和值添加一个新的属性。</p>
+</blockquote>
+</li>
+</ol>
+<p>利用setAttribute为html设置属性来区分主题。下面为html设置一个theme属性，属性值为’light’</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.documentElement.setAttribute(<span class="string">&#x27;theme&#x27;</span>, <span class="string">&#x27;light&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>添加个按钮用于主题切换，下面例子只设置两种主题，一个是白天’light’，一个是黑天’dark’。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;but&quot;</span>&gt;</span>切换<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;text&quot;</span>&gt;</span>theme<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> theme = <span class="string">&#x27;light&#x27;</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.documentElement.setAttribute(<span class="string">&#x27;theme&#x27;</span>, theme)</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">&#x27;but&#x27;</span>).onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      theme = theme === <span class="string">&#x27;light&#x27;</span> ? <span class="string">&#x27;dark&#x27;</span> : <span class="string">&#x27;light&#x27;</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.documentElement.setAttribute(<span class="string">&#x27;theme&#x27;</span>, theme)</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上述代码可实现为html设置一个theme属性，点击按钮进行属性值切换。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img-blog.csdnimg.cn/20210411161818955.PNG"
+                     
+                ></p>
+<h2 id="scss"><a href="#scss" class="headerlink" title="scss"></a>scss</h2><p>通过上述代码已经可是实现主题管理了，例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[theme=<span class="string">&quot;light&quot;</span>]</span> <span class="selector-class">.test</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#000</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-attr">[theme=<span class="string">&quot;dark&quot;</span>]</span> <span class="selector-class">.test</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过theme经行匹配使用哪个样式，但是问题在于这样主题样式会散落在各个地方，及其不方便管理，所以要借助scss帮忙管理主题样式。下面介绍一些scss的API。</p>
+<h3 id="定义混合指令-mixin"><a href="#定义混合指令-mixin" class="headerlink" title="定义混合指令@mixin"></a>定义混合指令@mixin</h3><blockquote>
+<p>混合指令的用法是在 @mixin 后添加名称与样式，比如名为 color 的混合通过下面的代码定义：</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> <span class="attribute">color</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ff0000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>混入指令也可以接受传值：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> <span class="attribute">color</span>(<span class="variable">$color</span>) &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="引用混合样式-include"><a href="#引用混合样式-include" class="headerlink" title="引用混合样式 @include"></a>引用混合样式 @include</h3><blockquote>
+<p>使用 @include 指令引用混合样式，格式是在其后添加混合名称，以及需要的参数（可选）：</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用前面定义好的混入 color，并传参数</span></span><br><span class="line"><span class="selector-class">.test</span>&#123;</span><br><span class="line">  <span class="keyword">@include</span> <span class="attribute">color</span>(<span class="number">#fff</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="向混合样式中导入内容-content"><a href="#向混合样式中导入内容-content" class="headerlink" title="向混合样式中导入内容@content"></a>向混合样式中导入内容@content</h3><blockquote>
+<p>在引用混合样式的时候，可以先将一段代码导入到混合指令中，然后再输出混合样式，额外导入的部分将出现在 @content 标志的地方：</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> <span class="attribute">color</span> &#123;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="keyword">@content</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@include</span> <span class="attribute">color</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="函数指令-function"><a href="#函数指令-function" class="headerlink" title="函数指令@function"></a>函数指令@function</h3><blockquote>
+<p>Sass 支持自定义函数，并能在任何属性值或 Sass script 中使用，一个函数可以含有多条语句，需要调用 @return 输出结果。</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@function</span> themed(<span class="variable">$key</span>) &#123;</span><br><span class="line">  <span class="keyword">@return</span> <span class="variable">$key</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.test</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: themed(<span class="number">#fff</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="父选择器-amp"><a href="#父选择器-amp" class="headerlink" title="父选择器 &amp;"></a>父选择器 &amp;</h3><blockquote>
+<p>在嵌套 CSS 规则时，有时也需要直接使用嵌套外层的父选择器，例如，当给某个元素设定 hover 样式时，或者当 body 元素有某个 classname 时，可以用 &amp; 代表嵌套规则外层的父选择器。</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> themeify &#123;</span><br><span class="line">  <span class="selector-attr">[theme = <span class="string">&#x27;dark&#x27;</span>]</span> &amp; &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.test</span>&#123;</span><br><span class="line">  <span class="keyword">@include</span> themeify;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[theme = <span class="string">&quot;dark&quot;</span>]</span> <span class="selector-class">.test</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Maps"><a href="#Maps" class="headerlink" title="Maps"></a>Maps</h3><blockquote>
+<p>Maps可视为键值对的集合，键被用于定位值 在css种没有对应的概念。 和Lists不同Maps必须被圆括号包围，键值对被都好分割 。 Maps中的keys和values可以是sassscript的任何对象。（包括任意的sassscript表达式 arbitrary SassScript expressions） 和Lists一样Maps主要为sassscript函数服务，如 map-get函数用于查找键值，map-merge函数用于map和新加的键值融合，@each命令可添加样式到一个map中的每个键值对。 Maps可用于任何Lists可用的地方，在List函数中 Map会被自动转换为List ， 如 (key1: value1, key2: value2)会被List函数转换为 key1 value1, key2 value2 ，反之则不能。</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$themes</span>: (</span><br><span class="line">  font_color: <span class="number">#000</span>,</span><br><span class="line">  background_color: <span class="number">#fff</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.test</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: map-get(<span class="variable">$themes</span>, font_color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="编译Maps-each"><a href="#编译Maps-each" class="headerlink" title="编译Maps @each"></a>编译Maps @each</h3><blockquote>
+<p>@each 指令的格式是 $var in <list>, $var 可以是任何变量名，比如 $length 或者 $name，而 <list> 是一连串的值，也就是值列表。</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$themes</span>: (</span><br><span class="line">  light: (</span><br><span class="line">    font_color: <span class="number">#000</span>,</span><br><span class="line">    background_color: <span class="number">#fff</span></span><br><span class="line">  ),</span><br><span class="line">  dark: (</span><br><span class="line">    font_color: <span class="number">#FFF</span>,</span><br><span class="line">    background_color: <span class="number">#000</span></span><br><span class="line">  )</span><br><span class="line">);</span><br><span class="line"><span class="keyword">@mixin</span> themeify&#123;</span><br><span class="line">  <span class="keyword">@each</span> <span class="variable">$theme-name</span>, <span class="variable">$theme-map</span> in <span class="variable">$themes</span> &#123;</span><br><span class="line">    <span class="selector-attr">[theme = <span class="string">&quot;#&#123;$theme-name&#125;&quot;</span>]</span> &amp; &#123;</span><br><span class="line">      <span class="attribute">color</span>: map-get(<span class="variable">$theme-map</span>, <span class="string">&#x27;font_color&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.test</span>&#123;</span><br><span class="line">  <span class="keyword">@include</span> themeify;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先设置了一个名为 <strong>$themes</strong> 的Maps，其中包含两个名为light和dark的Maps。然后指定一个名为 <strong>themeify</strong> 的混入，遍历 <strong>$themes</strong> 。将键指定给theme，在值中取’font_color’。上述代码编译为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[theme = <span class="string">&quot;light&quot;</span>]</span> <span class="selector-class">.test</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[theme = <span class="string">&quot;dark&quot;</span>]</span> <span class="selector-class">.test</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现主题管理"><a href="#实现主题管理" class="headerlink" title="实现主题管理"></a>实现主题管理</h2><p>通过上述scss的api介绍，已经很容易的实现主题管理了。<br>先创建一个theme.scss 用于管理主题和主题样式。</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// theme.scss</span></span><br><span class="line"><span class="variable">$themes</span>: (</span><br><span class="line">  light: (</span><br><span class="line">    font_color: <span class="number">#000</span>,</span><br><span class="line">    background_color: <span class="number">#fff</span></span><br><span class="line">  ),</span><br><span class="line">  dark: (</span><br><span class="line">    font_color: <span class="number">#FFF</span>,</span><br><span class="line">    background_color: <span class="number">#000</span></span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>然后创建handle.scss 用于遍历 <strong>$themes</strong> 提供混入。</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;./theme.scss&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历主题map</span></span><br><span class="line"><span class="keyword">@mixin</span> themeify &#123;</span><br><span class="line">  <span class="keyword">@each</span> <span class="variable">$theme-name</span>, <span class="variable">$theme-map</span> in <span class="variable">$themes</span> &#123;</span><br><span class="line">    <span class="variable">$theme-map</span>: <span class="variable">$theme-map</span> !global;   <span class="comment">// 将$theme-map提升到全局防止themed方法获取不到。</span></span><br><span class="line">    <span class="selector-attr">[theme = <span class="string">&quot;#&#123;$theme-name&#125;&quot;</span>]</span> &amp; &#123;</span><br><span class="line">      <span class="keyword">@content</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 获取样式的值</span></span><br><span class="line"><span class="keyword">@function</span> themed(<span class="variable">$key</span>) &#123;</span><br><span class="line">  <span class="keyword">@return</span> map-get(<span class="variable">$theme-map</span>, <span class="variable">$key</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 提供color混入</span></span><br><span class="line"><span class="keyword">@mixin</span> <span class="attribute">color</span>(<span class="variable">$color</span>) &#123;</span><br><span class="line">  <span class="keyword">@include</span> themeify&#123;</span><br><span class="line">    <span class="attribute">color</span>: themed(<span class="variable">$color</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 提供backgroundColor混入</span></span><br><span class="line"><span class="keyword">@mixin</span> backgroundColor(<span class="variable">$color</span>) &#123;</span><br><span class="line">  <span class="keyword">@include</span> themeify&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: themed(<span class="variable">$color</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">  <span class="keyword">@include</span> backgroundColor(<span class="string">&#x27;background_color&#x27;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.text</span>&#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="keyword">@include</span> <span class="attribute">color</span>(<span class="string">&#x27;font_color&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码会编译成：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[theme=<span class="string">&quot;light&quot;</span>]</span> <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-attr">[theme=<span class="string">&quot;dark&quot;</span>]</span> <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-attr">[theme=<span class="string">&quot;light&quot;</span>]</span> <span class="selector-class">.text</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-attr">[theme=<span class="string">&quot;dark&quot;</span>]</span> <span class="selector-class">.text</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过html的theme属性决定使用那套样式。效果图如下：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img-blog.csdnimg.cn/20210412100057361.gif"
+                     
+                ></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过scss提供的Maps进行主题管理可以将主题样式都放在一起，方便管理和维护。对于主题的添加和删除也很灵活。</p>
+<h2 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h2><p><a class="link"   target="_blank" rel="noopener" href="https://github.com/cuijindong/example/tree/master/css/theme" >源码<i class="fas fa-external-link-alt"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：scss实现主题切换</li>
+        <li>本文作者：大狗子</li>
+        <li>创建时间：2021-04-12 09:49:14</li>
+        <li>
+            本文链接：https://cuijindong.github.io/2021/04/12/scss实现主题管理/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/04/12/ES6%E6%A8%A1%E5%9D%97/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">ES6模块</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/04/12/let%E6%9A%82%E5%AD%98%E6%AD%BB%E5%8C%BA/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">let 暂存死区</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">大狗子</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.2</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2"><span class="nav-text">主题切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="nav-text">实现思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setAttribute"><span class="nav-text">setAttribute</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scss"><span class="nav-text">scss</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E6%B7%B7%E5%90%88%E6%8C%87%E4%BB%A4-mixin"><span class="nav-text">定义混合指令@mixin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E6%B7%B7%E5%90%88%E6%A0%B7%E5%BC%8F-include"><span class="nav-text">引用混合样式 @include</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E6%B7%B7%E5%90%88%E6%A0%B7%E5%BC%8F%E4%B8%AD%E5%AF%BC%E5%85%A5%E5%86%85%E5%AE%B9-content"><span class="nav-text">向混合样式中导入内容@content</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E4%BB%A4-function"><span class="nav-text">函数指令@function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%B6%E9%80%89%E6%8B%A9%E5%99%A8-amp"><span class="nav-text">父选择器 &amp;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maps"><span class="nav-text">Maps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91Maps-each"><span class="nav-text">编译Maps @each</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%BB%E9%A2%98%E7%AE%A1%E7%90%86"><span class="nav-text">实现主题管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%9C%B0%E5%9D%80"><span class="nav-text">源码地址</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.2/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.2/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.2/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.2/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.2/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.2/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.2/source/js/code-copy.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.2/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.2/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.2/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.2/source/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>
